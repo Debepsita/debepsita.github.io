@@ -1,218 +1,266 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Debepsita Mukherjee</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Georgia, "Times New Roman", serif;
-            background-color: #f7f7f7;
-            color: #111;
-        }
+  <title>Debepsita Mukherjee</title>
 
-        header {
-            background-color: #062f5f;
-            color: white;
-            text-align: center;
-            padding: 28px 20px 22px;
-        }
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #ffffff;
+      color: #1f2933;
+    }
 
-        header h1 {
-            margin: 0;
-            font-size: 44px;
-            font-weight: 500;
-        }
+    .layout {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      min-height: 100vh;
+    }
 
-        header p {
-            margin: 10px 0 8px;
-            font-size: 22px;
-        }
+    .sidebar {
+      background: #f7f9fc;
+      border-right: 1px solid #ddd;
+      padding: 35px 28px;
+      position: fixed;
+      width: 244px;
+      height: 100vh;
+    }
 
-        .top-contact {
-            font-family: Arial, sans-serif;
-            font-size: 15px;
-        }
+    .photo {
+      width: 170px;
+      height: 170px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 4px solid #062f5f;
+      margin-bottom: 20px;
+    }
 
-        nav {
-            background-color: #062f5f;
-            border-top: 1px solid rgba(255,255,255,0.25);
-            text-align: center;
-            padding: 14px;
-        }
+    .sidebar h1 {
+      font-family: Georgia, serif;
+      color: #062f5f;
+      font-size: 32px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
 
-        nav a {
-            color: white;
-            margin: 0 28px;
-            text-decoration: none;
-            font-size: 18px;
-        }
+    .sidebar p {
+      font-size: 15px;
+      line-height: 1.6;
+    }
 
-        nav a:hover {
-            border-bottom: 2px solid white;
-        }
+    .cv-btn {
+      display: inline-block;
+      background: #062f5f;
+      color: white;
+      padding: 10px 16px;
+      border-radius: 6px;
+      text-decoration: none;
+      margin: 12px 0 22px;
+      font-weight: bold;
+    }
 
-        .container {
-            max-width: 1100px;
-            margin: 32px auto;
-            padding: 0 25px;
-        }
+    .cv-btn:hover {
+      background: #084b86;
+    }
 
-        .card {
-            background: white;
-            border-radius: 8px;
-            padding: 24px;
-            margin-bottom: 18px;
-            box-shadow: 0 1px 8px rgba(0,0,0,0.12);
-        }
+    .nav a {
+      display: block;
+      color: #062f5f;
+      text-decoration: none;
+      font-weight: bold;
+      margin: 14px 0;
+      font-size: 17px;
+    }
 
-        .about {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 38px;
-            align-items: center;
-        }
+    .nav a:hover {
+      text-decoration: underline;
+    }
 
-        .about img {
-            width: 100%;
-            border-radius: 6px;
-        }
+    .main {
+      margin-left: 300px;
+      padding: 50px 70px;
+      max-width: 900px;
+    }
 
-        h2 {
-            color: #06245c;
-            font-size: 30px;
-            font-weight: 500;
-            margin-top: 0;
-        }
+    section {
+      margin-bottom: 50px;
+    }
 
-        h2::after {
-            content: "";
-            display: block;
-            width: 65px;
-            height: 2px;
-            background-color: #06245c;
-            margin-top: 10px;
-        }
+    h2 {
+      font-family: Georgia, serif;
+      color: #062f5f;
+      font-size: 34px;
+      margin-bottom: 14px;
+    }
 
-        p {
-            font-family: Arial, sans-serif;
-            font-size: 17px;
-            line-height: 1.7;
-        }
+    h2::after {
+      content: "";
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: #062f5f;
+      margin-top: 8px;
+    }
 
-        .research-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 28px;
-            font-family: Arial, sans-serif;
-        }
+    p {
+      font-size: 17px;
+      line-height: 1.7;
+    }
 
-        .research-item h3 {
-            color: #06245c;
-            margin-bottom: 8px;
-        }
+    .tag {
+      display: inline-block;
+      background: #062f5f;
+      color: white;
+      padding: 7px 13px;
+      border-radius: 20px;
+      margin: 6px 6px 6px 0;
+      font-size: 14px;
+    }
 
-        .contact {
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            line-height: 1.8;
-        }
+    .paper {
+      margin-bottom: 28px;
+      font-size: 16px;
+      line-height: 1.6;
+    }
 
-        footer {
-            background-color: #062f5f;
-            color: white;
-            text-align: center;
-            padding: 18px;
-            font-family: Arial, sans-serif;
-        }
+    .paper strong {
+      color: #062f5f;
+      font-size: 18px;
+    }
 
-        @media (max-width: 800px) {
-            .about {
-                grid-template-columns: 1fr;
-            }
+    .paper a {
+      color: #062f5f;
+      text-decoration: none;
+    }
 
-            .research-grid {
-                grid-template-columns: 1fr;
-            }
+    .paper a:hover {
+      text-decoration: underline;
+    }
 
-            nav a {
-                display: inline-block;
-                margin: 8px 12px;
-            }
-        }
-    </style>
+    footer {
+      margin-top: 60px;
+      color: gray;
+      font-size: 14px;
+    }
+
+    @media (max-width: 800px) {
+      .layout {
+        display: block;
+      }
+
+      .sidebar {
+        position: relative;
+        width: auto;
+        height: auto;
+        text-align: center;
+      }
+
+      .main {
+        margin-left: 0;
+        padding: 35px 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-    <h1>Debepsita Mukherjee</h1>
-    <p>PhD Student in Statistics, UT Austin</p>
-    <div class="top-contact">
-        debepsitamukherjee@utexas.edu &nbsp; | &nbsp; Austin, Texas, USA
+<div class="layout">
+
+  <aside class="sidebar">
+    <img src="profile.jpeg" alt="Debepsita Mukherjee" class="photo">
+
+    <h1>Debepsita<br>Mukherjee</h1>
+
+    <p>
+      PhD Student in Statistics<br>
+      The University of Texas at Austin
+    </p>
+
+    <p>
+      Austin, Texas, USA<br>
+      debepsitamukherjee@utexas.edu
+    </p>
+
+    <a href="cv.pdf" class="cv-btn" target="_blank">Download CV</a>
+
+    <div class="nav">
+      <a href="#about">Home</a>
+      <a href="#research">Research</a>
+      <a href="#papers">Publications</a>
+      <a href="#contact">Contact</a>
     </div>
-</header>
+  </aside>
 
-<nav>
-    <a href="#">Home</a>
-    <a href="#research">Research</a>
-    <a href="#contact">Contact</a>
-</nav>
+  <main class="main">
 
-<div class="container">
+    <section id="about">
+      <h2>About Me</h2>
 
-    <div class="card about">
-        <div>
-            <img src="profile.jpeg" alt="Debepsita Mukherjee">
-        </div>
+      <p>
+        I am a PhD student in Statistics and Data Science at The University of Texas at Austin.
+        My research interests include causal inference, machine learning, Bayesian methodology,
+        and statistical methods for complex and high-dimensional data.
+      </p>
 
-        <div>
-            <h2>About Me</h2>
-            <p>
-                I am a PhD student in the Department of Statistics and Data Sciences
-                at The University of Texas at Austin.
-            </p>
+      <p>
+        I am broadly interested in developing principled statistical methods motivated by
+        modern scientific, biomedical, and data-driven applications.
+      </p>
+    </section>
 
-            <p>
-                My research interests include causal inference, machine learning, Self Distillation methods
-                 and statistical methods for complex data.
-            </p>
-        </div>
-    </div>
+    <section id="research">
+      <h2>Research Interests</h2>
 
-    <div class="card" id="research">
-        <h2>Research Interests</h2>
+      <span class="tag">Causal Inference</span>
+      <span class="tag">Machine Learning</span>
+      <span class="tag">Causal Mediation</span>
+      <span class="tag">Self-Distillation</span>
+      <span class="tag">Bayesian Methods</span>
 
-        <div class="research-grid">
-            <div class="research-item">
-                <h3>Causal Inference</h3>
-                <p>
-                    Methods for causal estimation in causal mediation analysis for functional data.
-                    
-                </p>
-            </div>
+      <p>
+        My current research interests include causal mediation with functional data,
+        modern machine learning methods, self-distillation in generative models,
+        Bayesian methods, and statistical inference for complex data.
+      </p>
+    </section>
 
-            <div class="research-item">
-                <h3>Self Distillation Methods</h3>
-                <p>
-                    finding an optimal mixture of real and synthetic data such that the generation error of the reflow improves.
-                </p>
-            </div>
-        </div>
-    </div>
+    <section id="papers">
+      <h2>Publications</h2>
 
-    <div class="card" id="contact">
-        <h2>Contact</h2>
-        <div class="contact">
-            Email: debepsitamukherjee@utexas.edu <br>
-            Location: Austin, Texas, USA
-        </div>
-    </div>
+      <div class="paper">
+        <strong>
+          <a href="https://www.medrxiv.org/content/10.64898/2025.12.19.25342717v1" target="_blank">
+            TASTE: Shared Proteomic Effects on Multiple Related Cancers
+          </a>
+        </strong><br>
+        Joint work with Indranil Sahoo and Diptavo Dutta.<br>
+        <em>medRxiv preprint.</em>
+      </div>
+
+      <div class="paper">
+        <strong>One-Shot Private Confidence Regions via Resampling</strong><br>
+        Joint work with Purnamrita Sarkar, Po-Ling Loh, and Shourya Pandey.<br>
+        <em>Submitted to COLT 2025.</em>
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+
+      <p>
+        Email: debepsitamukherjee@utexas.edu<br>
+        Location: Austin, Texas, USA
+      </p>
+    </section>
+
+    <footer>
+      © 2026 Debepsita Mukherjee
+    </footer>
+
+  </main>
 
 </div>
-
-<footer>
-    © 2026 Debepsita Mukherjee. All rights reserved.
-</footer>
 
 </body>
 </html>
